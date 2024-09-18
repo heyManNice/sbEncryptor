@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傻比加密器</title>
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    >
+    <script>
+        function stringToSb(str) {
+            return Array.from(str).map(char => {
+                return char.charCodeAt(0).toString(2).padStart(16, '0');
+            }).join('').replaceAll("0","傻").replaceAll("1","比");
+        }
+        function sbToString(binary) {
+            binary=binary.replaceAll("傻","0").replaceAll("比","1");
+            let binaryArray = binary.match(/.{1,16}/g);
+            return binaryArray.map(bin => {
+                return String.fromCharCode(parseInt(bin, 2));
+            }).join('');
+        }
+    </script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        main{
+            max-width: 700px;
+            position: absolute;
+            margin:10px auto;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        textarea{
+            width: 100%;
+            height: 200px;
+            margin: 5px;
+        }
+        p{
+            text-align: center;
+        }
+        button{
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <p>加密</p>
+        <textarea id="encryption" placeholder="输入待加密文字"></textarea>
+        <button onclick="encryption_result.value=stringToSb(encryption.value)">加密</button>
+        <textarea id="encryption_result" placeholder="加密结果"></textarea>
+        <p>解密</p>
+        <textarea id="decrypt" placeholder="输入待解密文字"></textarea>
+        <button onclick="decrypt_result.value=sbToString(decrypt.value)">解密</button>
+        <textarea id="decrypt_result" placeholder="解密结果"></textarea>
+    </main>
+</body>
+</html>
