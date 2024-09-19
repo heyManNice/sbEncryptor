@@ -19,6 +19,20 @@
                 return String.fromCharCode(parseInt(bin, 2));
             }).join('');
         }
+        function copy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            textarea.setSelectionRange(0, textarea.value.length);
+            try {
+                document.execCommand('copy');
+            } catch (err) {
+                alert("复制失败！请手动选择复制");
+            }
+            document.body.removeChild(textarea);
+        }
+
     </script>
     <style>
         html,body{
@@ -63,12 +77,14 @@
                 <h1>加密</h1>
                 <textarea id="encryption" placeholder="输入待加密文字"></textarea>
                 <button onclick="encryption_result.value=stringToSb(encryption.value)">加密</button>
+                <button onclick="copy(encryption_result.value);this.focus()">复制</button>
                 <textarea id="encryption_result" placeholder="加密结果"></textarea>
             </article>
             <article>
                 <h1>解密</h1>
                 <textarea id="decrypt" placeholder="输入待解密文字"></textarea>
                 <button onclick="decrypt_result.value=sbToString(decrypt.value)">解密</button>
+                <button onclick="copy(decrypt_result.value);this.focus()">复制</button>
                 <textarea id="decrypt_result" placeholder="解密结果"></textarea>
             </article>
         </div>
