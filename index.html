@@ -36,7 +36,8 @@
             text-align: center;
         }
         p{
-            text-align: center;
+            text-align: left;
+            text-indent: 2rem;
         }
         button{
             margin-bottom: 16px;
@@ -45,14 +46,34 @@
 </head>
 <body>
     <main class="container">
-        <p>加密</p>
-        <textarea id="encryption" placeholder="输入待加密文字"></textarea>
-        <button onclick="encryption_result.value=stringToSb(encryption.value)">加密</button>
-        <textarea id="encryption_result" placeholder="加密结果"></textarea>
-        <p>解密</p>
-        <textarea id="decrypt" placeholder="输入待解密文字"></textarea>
-        <button onclick="decrypt_result.value=sbToString(decrypt.value)">解密</button>
-        <textarea id="decrypt_result" placeholder="解密结果"></textarea>
+        <article>
+            <details>
+                <summary role="button" class="outline">傻比加密器-介绍</summary>
+                <p>傻比加密器是一个简单的文本加密和解密工具。它将输入的文本转换为二进制编码，并用“傻”和“比”两个字符替换二进制中的“0”和“1”。实现普通字符串和“傻”、“比”二字组成的字符串的相互转换。程序在本地转换你的字符串，不会上传到服务器。</p>
+                <p>
+                    <span style="font-weight: bold;">
+                        声明：这个工具仅供娱乐，不适用于任何安全需求。
+                    </span>
+                    <a href="https://github.com/heyManNice/sbEncryptor">
+                        <img src="https://flat.badgen.net/badge/github/sbEncryptor?icon=github" alt="github">
+                    </a>
+                </p>
+            </details>
+        </article>
+        <div class="grid">
+            <article>
+                <h1>加密</h1>
+                <textarea id="encryption" placeholder="输入待加密文字"></textarea>
+                <button onclick="encryption_result.value=stringToSb(encryption.value)">加密</button>
+                <textarea id="encryption_result" placeholder="加密结果"></textarea>
+            </article>
+            <article>
+                <h1>解密</h1>
+                <textarea id="decrypt" placeholder="输入待解密文字"></textarea>
+                <button onclick="decrypt_result.value=sbToString(decrypt.value)">解密</button>
+                <textarea id="decrypt_result" placeholder="解密结果"></textarea>
+            </article>
+        </div>
     </main>
 </body>
 </html>
