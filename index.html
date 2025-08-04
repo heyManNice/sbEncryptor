@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>傻比加密器</title>
+    <title>你好加密器</title>
     <link rel="icon" href="https://heymannice.github.io/sbEncryptor/favicon.ico" type ="image/x-icon">
     <link rel="stylesheet" href="./css/pico.min.css">
     <script>
         function stringToSb(str) {
             return Array.from(str).map(char => {
                 return char.charCodeAt(0).toString(2).padStart(16, '0');
-            }).join('').replaceAll("0","傻").replaceAll("1","比");
+            }).join('').replaceAll("0","你").replaceAll("1","好");
         }
         function sbToString(binary) {
-            binary=binary.replace(/[^傻比]/g, '').replaceAll("傻","0").replaceAll("比","1");
+            binary=binary.replace(/[^你好]/g, '').replaceAll("你","0").replaceAll("好","1");
             let binaryArray = binary.match(/.{1,16}/g);
             return binaryArray.map(bin => {
                 return String.fromCharCode(parseInt(bin, 2));
@@ -60,8 +60,8 @@
     <main class="container">
         <article>
             <details open>
-                <summary role="button" class="outline">傻比加密器-介绍</summary>
-                <p>傻比加密器是一个简单的文本加密和解密工具。它将输入的文本转换为二进制编码，并用“傻”和“比”两个字符替换二进制中的“0”和“1”。实现普通字符串和“傻”、“比”二字组成的字符串的相互转换。程序在本地转换你的字符串，不会上传到服务器。</p>
+                <summary role="button" class="outline">你好加密器-介绍</summary>
+                <p>傻比加密器是一个简单的文本加密和解密工具。它将输入的文本转换为二进制编码，并用“你”和“好”两个字符替换二进制中的“0”和“1”。实现普通字符串和“傻”、“比”二字组成的字符串的相互转换。程序在本地转换你的字符串，不会上传到服务器。</p>
                 <p>
                     <span style="font-weight: bold;">
                         声明：这个工具仅供娱乐，不适用于任何安全需求。
